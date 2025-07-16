@@ -1,0 +1,16 @@
+﻿@model Guid
+@inject IViewLocalizer L
+
+@{
+    ViewData["Title"] = L["PaymentSuccessTitle"];
+}
+
+<div style="max-width: 600px; margin: 50px auto; text-align: center;">
+    <h1>✅ @L["PaymentSuccessHeader"]</h1>
+    <p>@L["ThankYouMessage"]</p>
+    <p><strong>@L["OrderIdLabel"]:</strong> @Model</p>
+
+    <a href="/" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">
+        @L["ReturnHomeButton"]
+    </a>
+</div>

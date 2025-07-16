@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+	</resheader>
+
+	<data name="YourEmail" xml:space="preserve">
+    <value>آپ کا ای میل</value>
+  </data>
+	<data name="Rating" xml:space="preserve">
+    <value>درجہ بندی</value>
+  </data>
+	<data name="SelectRating" xml:space="preserve">
+    <value>درجہ بندی منتخب کریں</value>
+  </data>
+	<data name="Star" xml:space="preserve">
+    <value>ستارہ</value>
+  </data>
+	<data name="Stars" xml:space="preserve">
+    <value>ستارے</value>
+  </data>
+	<data name="Comment" xml:space="preserve">
+    <value>تبصرہ</value>
+  </data>
+	<data name="SubmitReview" xml:space="preserve">
+    <value>جائزہ جمع کروائیں</value>
+  </data>
+</root>

@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "_Layout";
+    var code = ViewData["StatusCode"];
+    var message = ViewData["Message"]?.ToString();
+}
+
+<div class="text-center mt-5">
+    <h1 class="display-4 text-danger">Oops! (@code)</h1>
+    <p class="lead">@message</p>
+    <a href="/" class="btn btn-outline-primary mt-4">🏠 Back to Home</a>
+</div>

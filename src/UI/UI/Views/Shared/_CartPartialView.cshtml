@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Cart>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer L
+
+@{
+    var total = Model.Sum(item => item.Total);
+    var culture = System.Globalization.CultureInfo.CurrentCulture;
+}
+
+<div class="col-lg-8 mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>🛒 @L["YourCart"]</h3>
+        @if (Model.Any())
+        {
+            <form asp-controller="Cart" asp-action="CartClear" method="post" onsubmit="return confirm('@L["ClearCartConfirm"]');">
+                <button type="submit" class="btn btn-outline-danger btn-sm">@L["ClearCart"]</button>
+            </form>
+        }
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">@L["CartEmpty"]</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>@L["Cover"]</th>
+                        <th>@L["Book"]</th>
+                        <th>@L["Price"]</th>
+                        <th style="width: 120px;">@L["Quantity"]</th>
+                        <th>@L["Total"]</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr data-book-id="@item.BookId">
+                            <td>
+                                <img src="@item.BookCover" alt="@item.Name" style="width: 50px; height: 70px; object-fit: cover;" />
+                            </td>
+                            <td>
+                                <strong>@item.Name</strong><br />
+                                <span class="text-muted small">@item.Author</span>
+                            </td>
+                            <td>@item.Price.ToString("C", culture)</td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm quantity-input"
+                                       min="1"
+                                       value="@item.Quantity"
+                                       onchange="updateCart('@item.BookId', this.value)" />
+                            </td>
+                            <td>@item.Total.ToString("C", culture)</td>
+                            <td>
+                                <button class="btn btn-sm btn-danger remove-from-cart-btn" onclick="removeFromCart('@item.BookId')">
+                                    <i class="bi bi-trash" title="@L["Remove"]"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@if (Model.Any())
+{
+    <div class="col-lg-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">@L["CartSummary"]</h5>
+                <hr />
+                <div class="d-flex justify-content-between mb-2">
+                    <span>@L["Items"]:</span>
+                    <span>@Model.Count()</span>
+                </div>
+                <div class="d-flex justify-content-between fw-bold mb-3">
+                    <span>@L["Total"]:</span>
+                    <span>@total.ToString("C", culture)</span>
+                </div>
+                <a asp-controller="Order" asp-action="OrderCreation" class="btn btn-primary w-100">
+                    @L["CreateOrder"]
+                </a>
+            </div>
+        </div>
+    </div>
+}

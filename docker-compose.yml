@@ -1,0 +1,9 @@
+﻿services:
+  mssql:       {}
+  redis:       {}
+  rabbitmq:    {}
+  web:         {}
+
+volumes:
+  mssql_data:  {}
+  redis_data:  {}

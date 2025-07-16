@@ -1,0 +1,61 @@
+﻿@model OrderDto
+@inject IViewLocalizer L
+@{
+    ViewBag.Title = L["CheckoutTitle"];
+}
+
+<h2 class="text-center mb-4">@L["CheckoutTitle"]</h2>
+
+@if (Model.Items == null || !Model.Items.Any())
+{
+    <div class="alert alert-warning text-center">
+        @L["EmptyCart"]
+    </div>
+}
+else
+{
+    <form asp-action="PaymentStripe" method="post">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">@L["YourCart"]</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>@L["Book"]</th>
+                            <th>@L["Qty"]</th>
+                            <th>@L["Price"]</th>
+                            <th>@L["Total"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items!)
+                        {
+                            <tr>
+                                <td>@item.BookName</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Price.ToString("C")</td>
+                                <td>@(item.ItemCost)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div class="text-end mt-3">
+                    <h5><strong>@L["GrandTotal"]</strong> @Model.TotalSum().ToString("C")</h5>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        @L["ProceedToStripe"]
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

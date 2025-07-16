@@ -1,0 +1,105 @@
+﻿@model OrderVM
+@inject IViewLocalizer L
+
+@{
+    ViewBag.Title = L["CreateOrderTitle"];
+}
+
+<h2 class="text-center">@L["OrderCheckoutHeader"]</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.Message</div>
+}
+else
+{
+    <form asp-action="orderCreation" method="post">
+        <input type="hidden" asp-for="Order.CustomerId" />
+        <div class="row">
+            <div class="col-md-6">
+                <h4>@L["CustomerInfoHeader"]</h4>
+                <div class="form-group">
+                    <label asp-for="Order.Name">@L["Name"]</label>
+                    <input asp-for="Order.Name" class="form-control" />
+                    <span asp-validation-for="Order.Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Order.Email">@L["Email"]</label>
+                    <input asp-for="Order.Email" class="form-control" />
+                    <span asp-validation-for="Order.Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Order.Phone">@L["Phone"]</label>
+                    <input asp-for="Order.Phone" class="form-control" />
+                    <span asp-validation-for="Order.Phone" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Order.Address">@L["Address"]</label>
+                    <textarea asp-for="Order.Address" class="form-control"></textarea>
+                    <span asp-validation-for="Order.Address" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Order.City">@L["City"]</label>
+                    <input asp-for="Order.City" class="form-control" />
+                    <span asp-validation-for="Order.City" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Order.Country">@L["Country"]</label>
+                    <input asp-for="Order.Country" class="form-control" />
+                    <span asp-validation-for="Order.Country" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Order.PostCode">@L["PostCode"]</label>
+                    <input asp-for="Order.PostCode" class="form-control" />
+                    <span asp-validation-for="Order.PostCode" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h4>@L["YourCartHeader"]</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>@L["Book"]</th>
+                            <th>@L["Author"]</th>
+                            <th>@L["Qty"]</th>
+                            <th>@L["Price"]</th>
+                            <th>@L["Total"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items!)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Author</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Price.ToString("C")</td>
+                                <td>@item.Total.ToString("C")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div class="text-end">
+                    <strong>@L["GrandTotal"]</strong>
+                    @Model.Items.Sum(i => i.Total).ToString("C")
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success">@L["PlaceOrderButton"]</button>
+        </div>
+    </form>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,29 @@
+﻿@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = Localizer["PageTitle"];
+}
+
+<div class="container py-5">
+    <h2 class="mb-4">@Localizer["Heading"]</h2>
+
+    <p>@Localizer["Intro"]</p>
+
+    <form method="post" asp-action="Contact">
+        <div class="mb-3">
+            <label class="form-label">@Localizer["NameLabel"]</label>
+            <input name="Name" class="form-control" placeholder="@Localizer["NamePlaceholder"]" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">@Localizer["EmailLabel"]</label>
+            <input name="Email" type="email" class="form-control" placeholder="@Localizer["EmailPlaceholder"]" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">@Localizer["MessageLabel"]</label>
+            <textarea name="Message" class="form-control" rows="4" placeholder="@Localizer["MessagePlaceholder"]" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">@Localizer["SubmitButton"]</button>
+    </form>
+</div>

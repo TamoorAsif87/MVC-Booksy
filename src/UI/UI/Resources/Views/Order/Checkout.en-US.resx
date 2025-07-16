@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter</value>
+	</resheader>
+
+	<data name="CheckoutTitle" xml:space="preserve"><value>Checkout</value></data>
+	<data name="EmptyCart" xml:space="preserve"><value>Your cart is empty.</value></data>
+	<data name="YourCart" xml:space="preserve"><value>Your Cart</value></data>
+	<data name="Book" xml:space="preserve"><value>Book</value></data>
+	<data name="Qty" xml:space="preserve"><value>Qty</value></data>
+	<data name="Price" xml:space="preserve"><value>Price</value></data>
+	<data name="Total" xml:space="preserve"><value>Total</value></data>
+	<data name="GrandTotal" xml:space="preserve"><value>Grand Total:</value></data>
+	<data name="ProceedToStripe" xml:space="preserve"><value>Proceed to Stripe</value></data>
+</root>

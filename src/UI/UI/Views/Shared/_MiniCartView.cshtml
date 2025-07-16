@@ -1,0 +1,42 @@
+﻿@inject IViewLocalizer Localizer
+@inject ICart CartService
+
+@{
+    var items = CartService.GetCartItems();
+    var totalItems = items?.Count() ?? 0;
+}
+
+<div class="position-relative dropdown">
+    <a href="#" class="btn btn-sm btn-outline-dark px-2 py-1 dropdown-toggle" id="miniCartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-cart3 fs-5"></i>
+    </a>
+    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        @totalItems
+    </span>
+
+    <div class="dropdown-menu dropdown-menu-end p-2" style="min-width: 300px; max-height: 400px; overflow-y: auto;" id="mini-cart-items">
+        @if (!items!.Any())
+        {
+            <div class="text-center text-muted small">@Localizer["CartIsEmpty"]</div>
+        }
+        else
+        {
+            foreach (var item in items!)
+            {
+                <div class="d-flex align-items-start mb-2">
+                    <img src="@item.BookCover" alt="@item.Name" class="me-2" style="width: 50px; height: 70px; object-fit: cover;">
+                    <div>
+                        <div class="fw-bold">@item.Name</div>
+                        <div class="text-muted small">@item.Author</div>
+                        <div class="text-danger fw-semibold">$@item.Price.ToString("0.00")</div>
+                    </div>
+                </div>
+            }
+
+            <div class="dropdown-divider"></div>
+            <div class="text-center">
+                <a asp-action="getCart" asp-controller="cart" class="btn btn-sm btn-primary mt-2">@Localizer["ViewCart"]</a>
+            </div>
+        }
+    </div>
+</div>
