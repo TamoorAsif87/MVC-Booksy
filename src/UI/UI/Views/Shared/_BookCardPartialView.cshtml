@@ -1,0 +1,58 @@
+﻿@model BookDto
+@inject IViewLocalizer L
+
+@{
+    var discountedPrice = Model.Price * (1 - Model.Discount / 100);
+}
+
+
+<div class="card h-100 shadow-sm">
+    @if (!string.IsNullOrEmpty(Model.BookCover))
+    {
+        <img src="@Model.BookCover" class="card-img-top" alt="@Model.Title" style="object-fit: contain; background-color: #f9f9f9;" />
+    }
+    else
+    {
+        <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 250px;">
+            <span>@L["NoImage"]</span>
+        </div>
+    }
+
+    <div class="card-body d-flex flex-column">
+        <h5 class="card-title text-truncate">@Model.Title</h5>
+        <p class="card-text text-muted mb-1">@L["ByAuthor"] @Model.Author</p>
+
+        @if (Model.Discount > 0)
+        {
+            <p class="mb-1">
+                <span class="badge bg-success me-2">@Model.Discount @L["Off"]</span>
+                <span class="text-muted text-decoration-line-through me-1">$@Model.Price</span>
+                <span class="fw-bold text-danger">$@discountedPrice.ToString("0.00")</span>
+            </p>
+        }
+        else
+        {
+            <p class="fw-bold text-danger mb-1">$@Model.Price</p>
+        }
+
+        <p class="text-warning mb-1">
+            @L["Rating"]: @Model.AverageRating (@Model.TotalReviews @L["Reviews"])
+        </p>
+
+        <div class="mt-auto d-flex justify-content-between">
+            <a asp-action="GetBookDetails" asp-route-title="@Model.Title" asp-route-id="@Model.Id" class="btn btn-outline-primary btn-sm">  
+                @L["ShowDetails"]
+            </a>
+            <button class="btn btn-danger btn-sm add-to-cart-btn"
+                    data-book-id="@Model.Id"
+                    data-book-cover="@HttpUtility.UrlPathEncode((Model.BookCover ?? string.Empty).Replace('\\', '/'))"
+                    data-name="@Model.Title"
+                    data-author="@Html.Raw(JavaScriptEncoder.Default.Encode(Model.Author ?? string.Empty))"
+                    data-category-name="@Html.Raw(JavaScriptEncoder.Default.Encode(Model.CategoryName ?? string.Empty))"
+                    data-price="@discountedPrice.ToString("0.00")"
+                    data-quantity="1">
+                @L["AddToCart"]
+            </button>
+        </div>
+    </div>
+</div>

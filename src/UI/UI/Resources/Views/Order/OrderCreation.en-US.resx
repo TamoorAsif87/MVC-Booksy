@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter</value>
+	</resheader>
+
+	<data name="CreateOrderTitle">
+		<value>Create Order</value>
+	</data>
+	<data name="OrderCheckoutHeader">
+		<value>Order Checkout</value>
+	</data>
+	<data name="CustomerInfoHeader">
+		<value>Customer Information</value>
+	</data>
+	<data name="Name">
+		<value>Name</value>
+	</data>
+	<data name="Email">
+		<value>Email</value>
+	</data>
+	<data name="Phone">
+		<value>Phone</value>
+	</data>
+	<data name="Address">
+		<value>Address</value>
+	</data>
+	<data name="City">
+		<value>City</value>
+	</data>
+	<data name="Country">
+		<value>Country</value>
+	</data>
+	<data name="PostCode">
+		<value>Post Code</value>
+	</data>
+	<data name="YourCartHeader">
+		<value>Your Cart</value>
+	</data>
+	<data name="Book">
+		<value>Book</value>
+	</data>
+	<data name="Author">
+		<value>Author</value>
+	</data>
+	<data name="Qty">
+		<value>Quantity</value>
+	</data>
+	<data name="Price">
+		<value>Price</value>
+	</data>
+	<data name="Total">
+		<value>Total</value>
+	</data>
+	<data name="GrandTotal">
+		<value>Grand Total:</value>
+	</data>
+	<data name="PlaceOrderButton">
+		<value>Place Order</value>
+	</data>
+</root>

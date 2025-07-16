@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter</value>
+	</resheader>
+
+	<data name="CreateOrderTitle">
+		<value>آرڈر بنائیں</value>
+	</data>
+	<data name="OrderCheckoutHeader">
+		<value>آرڈر چیک آؤٹ</value>
+	</data>
+	<data name="CustomerInfoHeader">
+		<value>کسٹمر کی معلومات</value>
+	</data>
+	<data name="Name">
+		<value>نام</value>
+	</data>
+	<data name="Email">
+		<value>ای میل</value>
+	</data>
+	<data name="Phone">
+		<value>فون</value>
+	</data>
+	<data name="Address">
+		<value>پتہ</value>
+	</data>
+	<data name="City">
+		<value>شہر</value>
+	</data>
+	<data name="Country">
+		<value>ملک</value>
+	</data>
+	<data name="PostCode">
+		<value>پوسٹ کوڈ</value>
+	</data>
+	<data name="YourCartHeader">
+		<value>آپ کی ٹوکری</value>
+	</data>
+	<data name="Book">
+		<value>کتاب</value>
+	</data>
+	<data name="Author">
+		<value>مصنف</value>
+	</data>
+	<data name="Qty">
+		<value>مقدار</value>
+	</data>
+	<data name="Price">
+		<value>قیمت</value>
+	</data>
+	<data name="Total">
+		<value>کل</value>
+	</data>
+	<data name="GrandTotal">
+		<value>مکمل کل:</value>
+	</data>
+	<data name="PlaceOrderButton">
+		<value>آرڈر دیں</value>
+	</data>
+</root>
