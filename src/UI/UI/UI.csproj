@@ -8,11 +8,12 @@
   </PropertyGroup>
 
 
-   <ItemGroup>
-	<None Update="libs\libwkhtmltox.dll">
-		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	</None>
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="native-libs\**\*.*">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+	</ItemGroup>
 	
   <ItemGroup>
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
@@ -29,5 +30,6 @@
     <ProjectReference Include="..\..\Core\Core\Core.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
+
 
 </Project>

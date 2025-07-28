@@ -1,6 +1,6 @@
 using UI.Exceptions;
 
-var dllPath = Path.Combine(AppContext.BaseDirectory, "libwkhtmltox.dll");
+var dllPath = Path.Combine(AppContext.BaseDirectory, "native-libs", "libwkhtmltox.dll");
 var context = new CustomAssemblyLoadContext();
 context.LoadUnmanagedLibrary(dllPath);
 
